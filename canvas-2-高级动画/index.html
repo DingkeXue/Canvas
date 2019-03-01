@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+</head>
+<body>
+<form id="form" onclick="alert(1)">
+    <div class="form-group" onclick="alert(2)">
+        <label for="name">姓名</label>
+        <input type="text" id="name">
+    </div>
+    <button id="submit" type="submit" onclick="alert(3)">提交</button>
+</form>
+<canvas id="mycanvas" height="400" width="800">您的浏览器暂不支持</canvas>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
