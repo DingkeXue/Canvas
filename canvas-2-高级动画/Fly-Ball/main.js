@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-
+    // ==========阻止默认行为和冒泡代码开始===========
     let submit = document.querySelector("#submit");
     submit.addEventListener("click", preventDefault);
 
@@ -23,6 +23,9 @@ $(document).ready(function() {
         return false;
     });
 
+    // ==========阻止默认行为和冒泡代码结束===========
+
+    // ==========绘制会动的球开始===========
     let canvas = document.getElementById("mycanvas");
     let cont = canvas.getContext("2d");
 
@@ -56,8 +59,9 @@ $(document).ready(function() {
             ball.vx = -ball.vx;
         }
 
-        window.requestAnimationFrame(draw);
+        window.requestAnimationFrame(draw);  // 调用requestAnimationFrame方法
     }
 
     draw();
+    // ==========绘制会动的球开始===========
 });
