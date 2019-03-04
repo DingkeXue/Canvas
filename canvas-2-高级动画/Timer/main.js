@@ -44,8 +44,41 @@ function drawDial(ctx) {  // 绘制表盘
         ctx.restore();
     }
     
+
     ctx.restore();
 }
+
+/*function drawAllHands() {
+    let time = new Date();
+
+    let s = time.getSeconds();
+    let m = time.getMinutes();
+    let h = time.getHours();
+
+    let pi = Math.PI;
+    let secondAngle = pi / 180 * 6 * s;  // 计算出秒针每次转动的弧度
+    let minuteAngle = pi / 180 * 6 * m + secondAngle / 60; // 计算出分钟每次转动的弧度
+    let hourAngle = pi / 180 * 30 * h + minuteAngle / 12; // 计算出时针每次转动的弧度
+
+    drawHand(hourAngle, 60, 6, "#222", ctx);
+    drawHand(minuteAngle, 80, 4, "#555", ctx);
+    drawHand(secondAngle, 100, 2, "#00bcd4", ctx);
+}
+
+function drawHand(angle, length, width, color, ctx) {  // 绘制秒针、分针、时针
+    ctx.save();
+    ctx.translate(150, 150);
+    ctx.rotate(-Math.PI / 2 + angle);
+    ctx.beginPath();
+    ctx.moveTo(-3, 0);
+    ctx.lineTo(length, 0);
+    ctx.lineWidth = width;
+    ctx.strokeStyle = color;
+    ctx.lineCap = "round";
+    ctx.stroke();
+    ctx.closePath();
+    ctx.restore();
+}*/
 
 function drawAllHands() {
     let time = new Date();
