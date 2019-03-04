@@ -8,16 +8,16 @@ function init() {
 }
 
 function draw(ctx) {
-    requestAnimationFrame(function step() {
+    requestAnimationFrame(function module() {
         drawDial(ctx); // 绘制表盘
         drawAllHands(ctx); // 绘制指针
-        requestAnimationFrame(step);
+        requestAnimationFrame(module);
     });
 }
 
 
 
-function drawDial(ctx) {
+function drawDial(ctx) {  // 绘制表盘
     let pi = Math.PI;
 
     ctx.clearRect(0, 0, 300, 300);
@@ -30,7 +30,7 @@ function drawDial(ctx) {
     ctx.stroke();
     ctx.closePath();
 
-    for (let i = 0; i < 60; i ++) {
+    for (let i = 0; i < 60; i ++) { // 绘制表盘内的刻度
         ctx.save();
         ctx.rotate(-pi / 2 + i * pi / 30);
         ctx.beginPath();
@@ -55,16 +55,16 @@ function drawAllHands() {
     let h = time.getHours();
 
     let pi = Math.PI;
-    let secondAngle = pi / 180 * 6 * s;
-    let minuteAngle = pi / 180 * 6 * m + secondAngle / 60;
-    let hourAngle = pi / 180 * 30 * h + minuteAngle / 12;
+    let secondAngle = pi / 180 * 6 * s;  // 计算出秒针每次转动的弧度
+    let minuteAngle = pi / 180 * 6 * m + secondAngle / 60; // 计算出分钟每次转动的弧度
+    let hourAngle = pi / 180 * 30 * h + minuteAngle / 12; // 计算出时针每次转动的弧度
 
     drawHand(hourAngle, 60, 6, "#222", ctx);
     drawHand(minuteAngle, 80, 4, "#555", ctx);
     drawHand(secondAngle, 100, 2, "#00bcd4", ctx);
 }
 
-function drawHand(angle, length, width, color, ctx) {
+function drawHand(angle, length, width, color, ctx) {  // 绘制秒针、分针、时针
     ctx.save();
     ctx.translate(150, 150);
     ctx.rotate(-Math.PI / 2 + angle);
